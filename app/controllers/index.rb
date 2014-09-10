@@ -26,7 +26,8 @@ end
 
 get '/user_page' do
   api = SpotMe::Client.new
-  @user_attributes = api.get_user_data("self", session[:access_token])
+  @user_attributes = api.get_user_data(session[:access_token])
+  @friends = api.get_user_data(session[:access_token])
   erb :user_page
 end
 
