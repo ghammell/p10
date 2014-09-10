@@ -9,7 +9,7 @@ get '/'  do
 
     @access_token = api.get_access_token(client_id, secret, redirect_url, code)
     session[:access_token] = @access_token
-    redirect '/user_page'
+    # redirect '/user_page'
   end
 
   erb :home_page
