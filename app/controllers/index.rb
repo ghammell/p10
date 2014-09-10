@@ -1,7 +1,7 @@
 get '/'  do
   api = SpotMe::Client.new
 
-  if params[:code] != nil
+  if params[:code] != nil && session[:access_token] == nil
     client_id = "TWGEEI2BJU45QBLFVXFHVLMJVPXDGBAOC4B0VSYCWJDYFGRQ"
     secret = "HBEROOYRDWDOB1ASX2MGZWLCHRELJMOKF0GQ1SHWECHVVIKF"
     redirect_url = "http://fathomless-fortress-1403.herokuapp.com/"
@@ -9,7 +9,9 @@ get '/'  do
 
     @access_token = api.get_access_token(client_id, secret, redirect_url, code)
     session[:access_token] = @access_token["access_token"]
-    redirect '/user_page'
+
+  else
+      redirect '/user_page'
   end
 
   erb :home_page
