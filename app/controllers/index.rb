@@ -2,9 +2,11 @@ get '/'  do
   erb :home_page
 end
 
+get '/sign-in' do
+  client_id = "TWGEEI2BJU45QBLFVXFHVLMJVPXDGBAOC4B0VSYCWJDYFGRQ"
+  redirect_url = "http://fathomless-fortress-1403.herokuapp.com/"
+  redirect "https://foursquare.com/oauth2/authenticate?client_id=" + client_id + "&response_type=code&redirect_uri=" + redirect_url
+end
 
 
-# https://foursquare.com/oauth2/authenticate
-#     ?client_id=TWGEEI2BJU45QBLFVXFHVLMJVPXDGBAOC4B0VSYCWJDYFGRQ
-#     &response_type=code
-#     &redirect_uri=YOUR_REGISTERED_REDIRECT_URI
+
