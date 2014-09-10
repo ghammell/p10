@@ -3,7 +3,7 @@ module SpotMe
   class Client
     include HTTParty
 
-    base_uri "http://fathomless-fortress-1403.herokuapp.com"
+    # base_uri "http://fathomless-fortress-1403.herokuapp.com"
 
     def initialize
     end

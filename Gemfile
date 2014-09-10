@@ -18,6 +18,8 @@ gem 'shotgun'
 gem 'factory_girl'
 gem 'faker'
 
+gem 'httparty'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
