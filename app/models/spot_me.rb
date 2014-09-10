@@ -13,9 +13,10 @@ module SpotMe
     end
 
     def get_user_data(access_token)
-      foursquare_response = self.class.get("https://api.foursquare.com/v2/users/self?oauth_token=" + access_token + "&v=20140806&m=foursquare")
+      url_end = "?oauth_token=" + access_token + "&v=20140806&m=foursquare"
+      foursquare_response = self.class.get("https://api.foursquare.com/v2/users/self" + url_end)
       photo_url = foursquare_response["response"]["user"]["photo"]["prefix"] + "300x500" + foursquare_response["response"]["user"]["photo"]["suffix"]
-      friends = self.class.get("https://api.foursquare.com/v2/users/self/friends")
+      friends = self.class.get("https://api.foursquare.com/v2/users/self/friends" + url_end)
       attributes = {photo_url: photo_url, friends: friends}
     end
   end
