@@ -9,9 +9,10 @@ get '/'  do
 
     @access_token = api.get_access_token(client_id, secret, redirect_url, code)
     session[:access_token] = @access_token["access_token"]
+  end
 
-  else
-      redirect '/user_page'
+  if params[:code] != nil && session[:access_token] != nil
+    redirect '/user_page'
   end
 
   erb :home_page
