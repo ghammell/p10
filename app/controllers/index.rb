@@ -8,9 +8,10 @@ get '/'  do
     code = params[:code]
 
     @access_token = api.get_access_token(client_id, secret, redirect_url, code)
+    session[:access_token] = @access_token
+    redirect '/user_page'
   end
 
-  # session[:user_code] = @user_code
   erb :home_page
 end
 
@@ -19,6 +20,15 @@ get '/sign-in' do
   redirect_url = "http://fathomless-fortress-1403.herokuapp.com/"
   redirect "https://foursquare.com/oauth2/authenticate?client_id=" + client_id + "&response_type=code&redirect_uri=" + redirect_url
 end
+
+get '/user_page' do
+  api = SpotMe::Client.new
+  @user_info = api.get_user_data("self", session[:access_token])
+  erb :user_page
+end
+
+
+
 
 
 
