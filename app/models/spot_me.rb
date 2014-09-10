@@ -13,8 +13,8 @@ module SpotMe
     end
 
     def get_user_data(user_id, access_token)
-      p "whats up"
-      foursquare_response = self.class.get("https://api.foursquare.com/v2/users/" + user_id + "?oauth_token=" + access_token)
+      # p "whats up"
+      # foursquare_response = self.class.get("https://api.foursquare.com/v2/users/" + user_id + "?oauth_token=" + access_token)
     end
   end
 end
