@@ -11,7 +11,7 @@ get '/'  do
     session[:access_token] = @access_token["access_token"]
   end
 
-  if params[:code] != nil && session[:access_token] != nil
+  if session[:access_token] != nil
     redirect '/user_page'
   end
 
