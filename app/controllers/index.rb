@@ -22,8 +22,8 @@ get '/sign-in' do
 end
 
 get '/user_page' do
-  api = SpotMe::Client.new
-  @user_info = api.get_user_data("self", session[:access_token])
+  # api = SpotMe::Client.new
+  # @user_info = api.get_user_data("self", session[:access_token])
   erb :user_page
 end
 
